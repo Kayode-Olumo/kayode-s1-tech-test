@@ -1,0 +1,58 @@
+export const stockData: IStock[] = [
+  {
+    name: "Item A",
+    price: 125,
+    company: "Apple",
+    code: "AAPL",
+    id: 1,
+  },
+  {
+    name: "Item B",
+    price: 230,
+    company: "Microsoft",
+    code: "MSFT",
+    id: 2,
+  },
+  {
+    name: "Item C",
+    price: 295,
+    company: "Amazon",
+    code: "AMZN",
+    id: 3,
+  },
+  {
+    name: "Item D",
+    price: 245,
+    company: "NVIDIA",
+    code: "NVDA",
+    id: 4,
+  },
+  {
+    name: "Item E",
+    price: 900,
+    company: "Tesla",
+    code: "TSLA",
+    id: 5,
+  },
+  {
+    name: "Item F",
+    price: 875,
+    company: "Alphabet",
+    code: "GOOG",
+    id: 6,
+  },
+  {
+    name: "Item G",
+    price: 235,
+    company: "Berkshire Hathaway",
+    code: "BRK.B",
+    id: 7,
+  },
+  {
+    name: "Item H",
+    price: 400,
+    company: "Meta",
+    code: "META",
+    id: 8,
+  },
+];
