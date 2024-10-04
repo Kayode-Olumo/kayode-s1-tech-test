@@ -32,19 +32,19 @@ const CardItem: React.FC<ICardItem> = ({
             {name}
           </div>
           <div
-            className="text-gray-700 dark:text-gray-300"
+            className="text-gray-700 dark:text-gray-300 text-center"
             data-testid="card-company"
           >
             {company}
           </div>
           <div
-            className="text-gray-700 dark:text-gray-300"
+            className="text-gray-700 dark:text-gray-300 text-center"
             data-testid="card-code"
           >
             {code}
           </div>
           <div
-            className="text-gray-700 dark:text-gray-300"
+            className="text-gray-700 dark:text-gray-300 text-right"
             data-testid="card-price"
           >
             £{price.toLocaleString()}

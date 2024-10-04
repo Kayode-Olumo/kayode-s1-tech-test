@@ -18,7 +18,17 @@ const StockTable: FC<IStockTable> = ({
       <div className="grid gap-4">
         <div className="grid grid-cols-4 gap-4 px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg text-sm font-medium text-gray-500 dark:text-gray-300">
           {subHeaders?.map((subheader, index) => (
-            <div key={index}>{subheader}</div>
+            <div
+              key={index}
+              className={`${
+                subheader.toLowerCase() === "code" ||
+                subheader.toLowerCase() === "company"
+                  ? "text-center"
+                  : ""
+              } ${subheader.toLowerCase() === "price" ? "text-right" : ""}`}
+            >
+              {subheader}
+            </div>
           ))}
         </div>
 
