@@ -11,6 +11,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import FilterInput from "../FilterInput/FilterInput";
 
 interface IDrawer {
   open: boolean;
@@ -46,54 +47,42 @@ const Drawer: FC<IDrawer> = ({
           </SheetDescription>
         </SheetHeader>
         <form onSubmit={handleAddStock} className="space-y-4 mt-4">
-          <div>
-            <Label htmlFor="name">Name</Label>
-            <Input
-              id="name"
-              value={newStock.name}
-              onChange={(e) =>
-                setNewStock({ ...newStock, name: e.target.value })
-              }
-              className="bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-            />
-          </div>
-          <div>
-            <Label htmlFor="company">Company</Label>
-            <Input
-              id="company"
-              value={newStock.company}
-              onChange={(e) =>
-                setNewStock({ ...newStock, company: e.target.value })
-              }
-              className="bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-            />
-          </div>
-          <div>
-            <Label htmlFor="code">Code</Label>
-            <Input
-              id="code"
-              value={newStock.code}
-              onChange={(e) =>
-                setNewStock({ ...newStock, code: e.target.value })
-              }
-              className="bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-            />
-          </div>
-          <div>
-            <Label htmlFor="price">Price</Label>
-            <Input
-              id="price"
-              type="number"
-              value={newStock.price}
-              onChange={(e) =>
-                setNewStock({
-                  ...newStock,
-                  price: Number(e.target.value),
-                })
-              }
-              className="bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-            />
-          </div>
+          <FilterInput
+            id={"name"}
+            label={"Name"}
+            value={newStock.name}
+            inputValue={(e: { target: { value: string } }) =>
+              setNewStock({ ...newStock, name: e.target.value })
+            }
+          />
+          <FilterInput
+            id={"company"}
+            label={"Company"}
+            value={newStock.company}
+            inputValue={(e: { target: { value: string } }) =>
+              setNewStock({ ...newStock, company: e.target.value })
+            }
+          />
+          <FilterInput
+            id={"code"}
+            label={"Code"}
+            value={newStock.code}
+            inputValue={(e: { target: { value: string } }) =>
+              setNewStock({ ...newStock, code: e.target.value })
+            }
+          />
+          <FilterInput
+            id={"price"}
+            label={"Price"}
+            type={"number"}
+            value={newStock.price}
+            inputValue={(e) =>
+              setNewStock({
+                ...newStock,
+                price: Number(e.target.value),
+              })
+            }
+          />
           <Button type="submit" className="w-full">
             Add Stock
           </Button>
