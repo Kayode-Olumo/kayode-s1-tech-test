@@ -9,14 +9,13 @@ import {
 import FilterPanel from "../FilterPanel/FilterPanel";
 import React from "react";
 import StockTable from "../StockTable/StockTable";
-import { stockData } from "@/data/stockData";
+import { stockData as initialStockData } from "@/data/stockData";
 import SearchAndFilterBar from "../SearchAndFilterBar/SearchAndFilterBar";
 import Drawer from "../Drawer/Drawer";
 import AccessibilityDialog from "../AccessibilityDialog/AccessibilityDialog";
 
 const StockList = () => {
-  // const [stockData, setStockData] = useState([]);
-  // const [error, setError] = useState(null);
+  const [stockData, setStockData] = useState(initialStockData);
   const [showCheapest, setShowCheapest] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [minPrice, setMinPrice] = useState("");
@@ -55,6 +54,17 @@ const StockList = () => {
   // if (error) {
   //   return <div>Error: {error}</div>;
   // }
+
+  const handleAddStock = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Add the new stock to stockData
+    setStockData((prevStockData) => [...prevStockData, newStock]);
+
+    // Close drawer and reset form
+    setIsAddDrawerOpen(false);
+    setNewStock({ id: 0, name: "", company: "", code: "", price: 0 });
+  };
 
   const { minPriceOptions, maxPriceOptions } = useMemo(() => {
     const prices = stockData.map((stock) => stock.price);
@@ -96,14 +106,6 @@ const StockList = () => {
 
   const toggleSortOrder = () => {
     setSortOrder((prevOrder) => (prevOrder === "asc" ? "desc" : "asc"));
-  };
-
-  const handleAddStock = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Here you would typically send this data to the backend
-    console.log("New stock to be added:", newStock);
-    setIsAddDrawerOpen(false);
-    setNewStock({ id: 0, name: "", company: "", code: "", price: 0 }); // Reset form
   };
 
   return (
