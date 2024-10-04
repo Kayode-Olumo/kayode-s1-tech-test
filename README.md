@@ -8,7 +8,7 @@ The **Space1Test** project is a stock monitoring application built using **Next.
 
 ## Preview
 
-![Stock Monitor Preview](./path-to-image/Screenshot 2024-10-04 at 09.13.40.png)
+![Stock Monitor Preview](./assests/app-screenshot.png)
 
 ## Solution Overview
 
