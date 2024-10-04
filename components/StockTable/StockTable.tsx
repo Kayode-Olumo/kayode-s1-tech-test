@@ -1,18 +1,28 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import CardItem from "../CardItem/CardItem";
 import Pagination from "../Pagination/Pagination";
 
 interface IStockTable {
   subHeaders: string[];
-  displayedStocks: IStock[];
   filteredStocks: IStock[];
 }
 
-const StockTable: FC<IStockTable> = ({
-  subHeaders,
-  displayedStocks,
-  filteredStocks,
-}) => {
+const StockTable: FC<IStockTable> = ({ subHeaders, filteredStocks }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
+  // Calculate the stocks to display based on the current page
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const displayedStocks = filteredStocks.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
+
+  // Handle page change
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage);
+  };
+
   return (
     <>
       <div className="grid gap-4">
@@ -33,14 +43,16 @@ const StockTable: FC<IStockTable> = ({
         </div>
 
         {displayedStocks.map((stock) => (
-          <>
-            <CardItem key={stock.id} {...stock} />
-          </>
+          <CardItem key={stock.id} {...stock} />
         ))}
       </div>
+
+      {/* Pass the page change handler and current page info to Pagination */}
       <Pagination
         displayedStocks={displayedStocks}
         filteredStocks={filteredStocks}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
       />
     </>
   );

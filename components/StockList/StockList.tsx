@@ -58,10 +58,8 @@ const StockList = () => {
   const handleAddStock = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Add the new stock to stockData
     setStockData((prevStockData) => [...prevStockData, newStock]);
 
-    // Close drawer and reset form
     setIsAddDrawerOpen(false);
     setNewStock({ id: 0, name: "", company: "", code: "", price: 0 });
   };
@@ -152,7 +150,6 @@ const StockList = () => {
 
       <StockTable
         subHeaders={["Name", "Company", "Code", "Price"]}
-        displayedStocks={displayedStocks}
         filteredStocks={filteredStocks}
       />
     </div>
