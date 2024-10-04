@@ -1,8 +1,9 @@
-# Space1Test - Stock Monitor Application
+
+# SpaceTest1 - Stock Monitor Application
 
 ## Introduction
 
-The **Space1Test** project is a stock monitoring application built using **Next.js** and **TypeScript**. It provides users with real-time stock market data, allows for monitoring of selected stocks, and offers an intuitive interface for easy navigation. This project showcases core front-end development skills, focusing on data handling, UI design, and performance optimisation.
+The **SpaceTest1** project is a stock monitoring application built using **Next.js** and **TypeScript**. It provides users with real-time stock market data, allows for monitoring of selected stocks, and offers an intuitive interface for easy navigation. This project showcases core front-end development skills, focusing on data handling, UI design, and performance optimisation.
 
 **Live Link**: [Stock Monitor App](https://stock-monitor-app.vercel.app/)
 
@@ -13,11 +14,9 @@ The **Space1Test** project is a stock monitoring application built using **Next.
 ## Solution Overview
 
 The solution integrates data from a third-party API to display real-time stock data in a tabular format. The application allows users to:
-
-- Monitor key stock metrics such as price and volume of stocks.
+- Monitor key stock metrics such as price, volume, and change percentage.
 - Add and remove stocks from their watchlist.
 - Sort and filter stock data based on user preferences.
-- Change accessibility features for a better experience
 
 This app is designed with scalability and performance in mind, utilising TypeScript for robust type-checking and Next.js for server-side rendering, ensuring fast load times and smooth navigation.
 
@@ -25,7 +24,7 @@ This app is designed with scalability and performance in mind, utilising TypeScr
 
 The development process followed these key principles:
 
-- **Component-Based Architecture**: The UI is broken down into modular, reusable React components (e.g., `StockTable`, `CardItem`), ensuring that each part of the application can be independently developed, tested, and maintained.
+- **Component-Based Architecture**: The UI is broken down into modular, reusable React components (e.g., `StockTable`, `StockRow`), ensuring that each part of the application can be independently developed, tested, and maintained.
 - **API Integration**: The app fetches stock data from an external API using Next.js's server-side capabilities, enabling the display of real-time stock information.
 - **State Management**: React's built-in hooks (`useState`, `useEffect`) are used for local state management. Stocks are managed within components, ensuring clean separation of concerns.
 - **TypeScript for Type Safety**: TypeScript ensures that the types of the fetched stock data are strictly defined, reducing the risk of runtime errors and improving the overall robustness of the code.
@@ -43,24 +42,22 @@ The development process followed these key principles:
 - **Next.js**: For server-side rendering and routing.
 - **TypeScript**: For type-safe JavaScript, ensuring more predictable code behaviour.
 - **React**: For building modular, reusable UI components.
-- **TailwindCSS**: For for styling of reusable UI components
 - **CSS Modules**: For component-scoped styling to prevent conflicts.
 - **Stock API**: Integration with a third-party stock data API for fetching real-time stock information.
 - **Deployment**: The application is deployed on **Vercel**, providing seamless integration with Next.js for optimised performance and scalability.
 
 ## Limitations
 
-- **No API or Database**: The stock data used is hard coded, which may affect the accuracy and timeliness of stock data updates.
-- **Basic State Management**: Currently, the state management only handles local state within individual components. Introducing a global state management system like Redux could provide better handling of complex data interactions. In addition, create an endpoint would allow for more complex manipulation of data i.e. GET, POST, DELETE etc.
+- **Limited API Rate**: The stock data API used has a limited number of requests per day, which may affect the accuracy and timeliness of stock data updates.
+- **Basic State Management**: Currently, the state management only handles local state within individual components. Introducing a global state management system like Redux could provide better handling of complex data interactions.
 - **No User Authentication**: The app lacks user-specific features like personalised stock lists tied to accounts, which would require backend integration for full functionality.
-- **Validation and Edge Cases**: Currently the appliction does not check that data entries conform to specific parameters, so the quality of the data cannot be guaranteed.
 
 ## Future Improvements
 
 - **Global State Management**: Implement Redux or Context API for handling global states, such as a stock watchlist that persists across components and sessions.
 - **Authentication and User Profiles**: Add user authentication using OAuth or similar methods to allow users to save personalised stock watchlists.
 - **Data Caching**: Implement caching strategies to minimise API requests and reduce load times, especially for frequently monitored stocks.
-- **Testing**: Given more time the appliction would benefit from more unit tests using **Jest** and integration tests with **React Testing Library** to improve code quality and ensure that edge cases are handled.
+- **Testing**: Add unit tests using **Jest** and integration tests with **React Testing Library** to improve code quality and ensure that edge cases are handled.
 - **UI/UX Enhancements**: Improve the stock table's design by adding colour indicators (e.g., red/green for price changes), tooltips, and pagination for large datasets.
 
 ## Getting Started
@@ -68,19 +65,16 @@ The development process followed these key principles:
 To get started with this project locally, follow the steps below:
 
 1. **Clone the repository:**
-
    ```bash
    git clone https://github.com/jjrdevspace01/spacetest1
    ```
 
 2. **Install the necessary dependencies:**
-
    ```bash
    npm install
    ```
 
 3. **Start the development server:**
-
    ```bash
    npm run dev
    ```
