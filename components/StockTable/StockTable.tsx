@@ -5,18 +5,22 @@ import Pagination from "../Pagination/Pagination";
 interface IStockTable {
   subHeaders: string[];
   filteredStocks: IStock[];
+  showCheapest: boolean;
 }
 
-const StockTable: FC<IStockTable> = ({ subHeaders, filteredStocks }) => {
+const StockTable: FC<IStockTable> = ({
+  subHeaders,
+  filteredStocks,
+  showCheapest,
+}) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
   // Calculate the stocks to display based on the current page
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const displayedStocks = filteredStocks.slice(
-    startIndex,
-    startIndex + itemsPerPage
-  );
+  const displayedStocks = showCheapest
+    ? filteredStocks.slice(0, 5)
+    : filteredStocks.slice(startIndex, startIndex + itemsPerPage);
 
   // Handle page change
   const handlePageChange = (newPage: number) => {
@@ -46,14 +50,14 @@ const StockTable: FC<IStockTable> = ({ subHeaders, filteredStocks }) => {
           <CardItem key={stock.id} {...stock} />
         ))}
       </div>
-
-      {/* Pass the page change handler and current page info to Pagination */}
-      <Pagination
-        displayedStocks={displayedStocks}
-        filteredStocks={filteredStocks}
-        currentPage={currentPage}
-        onPageChange={handlePageChange}
-      />
+      {!showCheapest && (
+        <Pagination
+          displayedStocks={displayedStocks}
+          filteredStocks={filteredStocks}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
+      )}
     </>
   );
 };

@@ -98,10 +98,6 @@ const StockList = () => {
       }
     });
 
-  const displayedStocks = showCheapest
-    ? filteredStocks.slice(0, 5)
-    : filteredStocks;
-
   const toggleSortOrder = () => {
     setSortOrder((prevOrder) => (prevOrder === "asc" ? "desc" : "asc"));
   };
@@ -151,6 +147,7 @@ const StockList = () => {
       <StockTable
         subHeaders={["Name", "Company", "Code", "Price"]}
         filteredStocks={filteredStocks}
+        showCheapest={showCheapest}
       />
     </div>
   );
