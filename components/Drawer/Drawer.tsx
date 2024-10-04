@@ -32,7 +32,7 @@ const Drawer: FC<IDrawer> = ({
       <SheetTrigger asChild>
         <Button
           size="sm"
-          className="bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-700 dark:hover:bg-blue-800"
+          className="bg-black hover:bg-slate-700 text-white dark:bg-blue-700 dark:hover:bg-blue-800"
         >
           <Plus className="h-4 w-4 mr-2" />
           Add
